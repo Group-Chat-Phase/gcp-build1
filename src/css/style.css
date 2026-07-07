@@ -7,7 +7,7 @@
 
 body {
   background-color: #000; /* fallback while image loads / for any gaps */
-  background-image: url('bg-tile.webp');
+  background-image: url('../images/bg-tile.webp');
   background-repeat: repeat;      /* tiles endlessly instead of stretching */
   background-size: 300px auto;    /* size of ONE tile — shrink/enlarge this number to taste */
   color: #fff;            /* White text */
@@ -81,7 +81,7 @@ main {
   width: 100%;
   height: 100%;
   background-color: #000;
-  background-image: url('bg-tile.webp');
+  background-image: url('../images/bg-tile.webp');
   background-repeat: repeat;
   background-size: 300px auto;
   z-index: 1000;
@@ -99,11 +99,24 @@ main {
 }
 
 h1 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Syncopate', sans-serif;
+  font-weight: 700;
   font-size: clamp(4rem, 18vw, 15rem);
   font-weight: 700;
   line-height: 0.8;
   letter-spacing: -0.00em;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.subheader {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  text-transform: none;   /* override the site-wide uppercase — blackletter needs lowercase to read right */
+  letter-spacing: 0.02em;
+  margin-top: -10px;      /* pulls it up closer to the h1, like your reference image */
   margin-bottom: 20px;
   position: relative;
   z-index: 1;

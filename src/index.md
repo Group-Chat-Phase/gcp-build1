@@ -8,7 +8,8 @@ title: GROUP CHAT PHASE
 
 <div class="hero-wrapper">
   <section class="hero">
-    <h1>METROSE<br>DIGITAL</h1>
+    <h1>VICE BREAK:</h1>
+    <p class="subheader">an addictionary</p>
   </section>
 </div>
 
