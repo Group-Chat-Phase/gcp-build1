@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | GROUP CHAT PHASE</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script data-goatcounter="https://groupchatphase.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="/" style="text-decoration:none; color:white; font-weight:900; letter-spacing:-1px;">GROUP CHAT PHASE</a>
+    </div>
+    <nav>
+  <ul>
+{% for item in menu %}
+  <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+{% endfor %}
+  </ul>
+</nav>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer>
+    <p>&copy; 2026 GROUP CHAT PHASE. ALL RIGHTS RESERVED.</p>
+  </footer>
+
+<script>
+  const interludes = document.querySelectorAll('.story-interlude');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const prev = entry.target.previousElementSibling;
+      const next = entry.target.nextElementSibling;
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        if (prev && prev.classList.contains('story-text')) {
+          prev.style.opacity = '0';
+          prev.style.transition = 'opacity 0.8s ease';
+        }
+        if (next && next.classList.contains('story-text')) {
+          next.style.opacity = '0';
+          next.style.transition = 'opacity 0.8s ease';
+        }
+      } else {
+        entry.target.classList.remove('visible');
+        if (prev && prev.classList.contains('story-text')) {
+          prev.style.opacity = '1';
+        }
+        if (next && next.classList.contains('story-text')) {
+          next.style.opacity = '1';
+        }
+      }
+    });
+  }, { threshold: 0.3 });
+  interludes.forEach(interlude => observer.observe(interlude));
+
+const heroOverlay = document.querySelector('.hero-overlay');
+
+if (heroOverlay) {
+  document.body.style.overflow = 'hidden';
+  let fakeScroll = 0;
+  const isMobile = window.innerWidth <= 768;
+  const fadeDistance = isMobile ? 200 : 600;
+  let touchStartY = 0;
+
+  function applyFade(delta) {
+    fakeScroll = Math.max(0, fakeScroll + delta);
+    const opacity = Math.max(0, 1 - fakeScroll / fadeDistance);
+    heroOverlay.style.opacity = opacity;
+    if (opacity === 0) {
+      document.body.style.overflow = '';
+      heroOverlay.style.display = 'none';
+    }
+  }
+
+  heroOverlay.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    applyFade(e.deltaY);
+  }, { passive: false });
+
+  heroOverlay.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  heroOverlay.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    applyFade(touchStartY - e.touches[0].clientY);
+    touchStartY = e.touches[0].clientY;
+  }, { passive: false });
+}
+// Protect images
+document.addEventListener('contextmenu', (e) => {
+  if (e.target.tagName === 'IMG') {
+    e.preventDefault();
+  }
+});
+
+document.addEventListener('dragstart', (e) => {
+  if (e.target.tagName === 'IMG') {
+    e.preventDefault();
+  }
+});
+
+</script>
+</body>
+</html>

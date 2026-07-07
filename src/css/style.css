@@ -1,0 +1,467 @@
+/* 1. RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000; /* Black background */
+  color: #fff;            /* White text */
+  font-family: 'Inter', sans-serif;
+  line-height: 1.2;
+  text-transform: uppercase; /* Brand-wide uppercase */
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 2. NAVIGATION */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  mix-blend-mode: difference; /* Makes text visible over any image */
+}
+
+.logo a {
+  font-family: 'Space Mono', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+nav a {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: #fff;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.5;
+}
+
+/* 3. HERO SECTION */
+main {
+  padding: 0 40px;
+}
+
+.hero-wrapper {
+  height: 100vh;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 10vh;
+}
+
+.hero-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.1s linear;
+}
+
+.hero-img {
+  width: 40%;
+  max-width: 500px;
+  height: auto;
+  object-fit: cover;
+}
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(4rem, 18vw, 15rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.00em;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 4. EDITORIAL NOTE */
+.editorial-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  border-top: 1px solid #333;
+  padding: 60px 0;
+  margin-top: 60px;
+  align-items: start;
+}
+
+.editorial-note {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.editorial-note h2 {
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #444;
+}
+
+.editorial-note p {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #888;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  max-width: 600px;
+}
+
+.table-of-contents {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.table-of-contents h2 {
+  font-family: 'Space Mono', monospace;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #444;
+}
+
+.table-of-contents ul {
+  list-style: none;
+  padding: 0;
+}
+
+.table-of-contents ul li {
+  margin-bottom: 15px;
+}
+
+.table-of-contents ul li a {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #888;
+  letter-spacing: 0.05em;
+  text-transform: none;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.table-of-contents ul li a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .editorial-wrapper {
+    grid-template-columns: 1fr; /* ← stacks on mobile */
+    gap: 40px;
+  }
+
+  .table-of-contents ul li a {
+    font-size: 12px;
+}
+ .hero-img {
+    width: 70%;
+  }
+}
+
+/* 5. PRODUCT GRID & IMAGES */
+.grid-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 20px;
+  margin-top: 100px;
+  padding-bottom: 100px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.product-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 15px); /* accounts for margin-bottom on img */
+  background-color: #dc0988;
+  mix-blend-mode: color;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none; /* so it doesn't block hover/clicks */
+}
+
+.product-card:hover::after {
+  opacity: 1;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.product-img {        
+  width: 100%;
+  aspect-ratio: unset; /* Tall fashion aspect ratio */
+  object-fit: cover;
+  filter: none; /* Desaturated look */
+  transition: none;
+  margin-bottom: 15px;
+  background-color: #1a1a1a; /* Placeholder color while loading */
+}
+
+/* TEST FOR GRAYSCALE VS AUTOFILTER */
+.product-img-test {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* Tall fashion aspect ratio */
+  object-fit: cover;
+  filter: grayscale(100%); /* GRAYSCALE */
+  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 15px;
+  background-color: #1a1a1a; /* Placeholder color while loading */
+}
+
+.product-card:hover .product-img-test {
+  filter: grayscale(0%); /* GRAYSCALE REMOVAL ON HOVER */
+}
+
+/* LANDSCAPE IMAGE VARIANT */
+.product-img-landscape {
+  width: 100%;
+  aspect-ratio: unset;       /* Don't force any crop */
+  height: auto;              /* Let the natural height breathe */
+  object-fit: cover;
+  filter: none;
+  transition: none;
+  margin-bottom: 15px;
+  background-color: #1a1a1a;
+  display: block;
+}
+
+.product-card h3 {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.product-card span {
+  font-size: 11px;
+  color: #666;
+}
+
+
+
+/* 5. FOOTER */
+footer {
+  padding: 40px;
+  border-top: 1px solid #1a1a1a;
+  text-align: center;
+  font-size: 10px;
+  color: #444;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE FOR MOBILE */
+@media (max-width: 768px) {
+  .grid-section {
+    grid-template-columns: repeat(2, 1fr); /* ← two columns on mobile */
+  }
+  header {
+    padding: 20px;
+    flex-wrap: nowrap; /* ← forces nav onto one line */
+    overflow: hidden;
+  }
+  nav ul {
+    gap: 15px; /* ← tighten gap so it fits */
+  }
+  nav a {
+    font-size: 9px; /* ← shrink text slightly to fit */
+  }
+  .logo a {
+    font-size: 1.1rem; /* ← shrink logo slightly */
+  }
+    .editorial-note {
+    grid-template-columns: 1fr; /* ← stacks to single column */
+    gap: 20px;
+    
+  }
+  .editorial-note p {
+    font-size: 12px; /* ← smaller font on mobile */
+  }
+  
+  main {
+    padding: 0 20px; /* ← less side padding on mobile */
+  }
+}
+
+/*RESPONSIVE FOR DESKTOP*/
+@media (min-width: 769px) {
+  .product-img {
+    max-height: 95vh;
+    object-fit: contain; /* ← full photo always visible */
+    background-color: #000
+  }
+
+  .product-img-landscape {
+    max-height: 95vh;
+    object-fit: contain; /* ← full photo always visible */
+    background-color: #000
+  }
+}
+/* 6. STORY SECTION */
+.story-section {
+  background-color: #f9e8f5;
+  color: #000;
+  padding: 100px 40px;
+  margin-top: 0;
+  margin-left: -40px;  /* ← cancel out main padding */
+  margin-right: -40px; /* ← cancel out main padding */
+}
+
+.story-section h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 60px;
+  color: #000;
+}
+
+.story-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #222;
+  max-width: 680px;
+  margin: 0 auto;
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.story-text p {
+  margin-bottom: 40px;
+}
+
+.story-img {
+  width: 100%;
+  max-width: 680px;
+  margin: 60px auto;
+  display: block;
+  filter: none;
+}
+
+.story-img-caption {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  color: #999;
+  letter-spacing: 0.1em;
+  margin-top: 10px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .story-section {
+    padding: 60px 20px;
+    margin-left: -20px; /* ← cancel out mobile main padding */
+    margin-right: -20px;
+  }
+
+  .story-text {
+    font-size: 14px;
+  }
+}
+
+/* STORY PHOTO INTERLUDE */
+.story-interlude {
+  position: relative;
+  margin-left: -40px;
+  margin-right: -40px;
+  padding: 100px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.story-interlude.visible {
+  opacity: 1;
+}
+
+.story-interlude .product-card {
+  max-width: 500px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .story-interlude {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 60px 20px;
+  }
+}
+
+/* 7. ABOUT PAGE */
+.about-section {
+  padding: 160px 40px 100px; /* 160px top to clear the fixed header */
+  max-width: 680px;
+}
+
+.about-section h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 3rem); /* much smaller than hero h1 */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+  text-transform: uppercase
+}
+
+.about-section p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #888;
+  letter-spacing: 0.02em;
+  margin-bottom: 30px;
+  text-transform: none
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 120px 20px 60px;
+  }
+}
