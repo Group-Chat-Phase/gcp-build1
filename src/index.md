@@ -4,7 +4,6 @@ title: GROUP CHAT PHASE
 ---
 
 <div class="hero-overlay">
-  <img src="/images/HEROPIC.jpg" class="hero-img">
 </div>
 
 <div class="hero-wrapper">
@@ -29,163 +28,110 @@ title: GROUP CHAT PHASE
 
 <section class="grid-section" id="photography">
 <div class="product-card">
-  <img src="/images/ORB.jpg" alt="contrast1" class="product-img">
-  </div> 
+</div> 
 <div class="product-card">
-  <img src="/images/BALLS.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card full-width">
-  <img src="/images/MALL_OG_EDITED.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card">
-  <img src="/images/ABSTRACT1.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card">
-  <img src="/images/CUBE2.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card full-width">
-  <img src="/images/Artifacts.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card">
-  <img src="/images/HALLWAY.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card">
-  <img src="/images/HOLE.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card full-width">
-  <img src="/images/ARTIFACTS2.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card full-width">
-  <img src="/images/BOX.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card full-width">
-  <img src="/images/MIRROR.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card">
-  <img src="/images/RAY.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card">
-  <img src="/images/ROAD.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card full-width">
-  <img src="/images/STAR_WARS.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card full-width">
-  <img src="/images/leo3.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card full-width">
-  <img src="/images/leo2.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card">
-  <img src="/images/leo11.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card">
-  <img src="/images/leo12.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card full-width">
-  <img src="/images/leo4.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card full-width">
-  <img src="/images/leo6.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card">
-  <img src="/images/leo9.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card">
-  <img src="/images/CLOUD_MIRROR.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card">
-  <img src="/images/enoshimakite1c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/2533c.jpg" alt="contrast1" class="product-img">
-  </div>
-<div class="product-card full-width">
-  <img src="/images/Hyogo1.jpg" alt="contrast1" class="product-img-landscape">
-  </div>
-<div class="product-card full-width">
-  <img src="/images/deathspider.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 <div class="product-card full-width">
-  <img src="/images/enoshimakitec.jpg" alt="contrast1" class="product-img-landscape">
-</div>
-<div class="product-card">
-  <img src="/images/TOPDOWN_CHICAGO.jpg" alt="contrast1" class="product-img">
-</div>
-<div class="product-card">
-  <img src="/images/WALLS.jpg" alt="contrast1" class="product-img">
-</div>
-<div class="product-card">
-  <img src="/images/leo10.jpg" alt="contrast1" class="product-img">
-</div>
-<div class="product-card">
-  <img src="/images/leo13.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card full-width">
-  <img src="/images/leo8.jpg" alt="contrast1" class="product-img-landscape">
-</div>
-<div class="product-card">
-  <img src="/images/leo19.jpg" alt="contrast1" class="product-img">
-</div>
-<div class="product-card">
-  <img src="/images/leo14.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card full-width">
-  <img src="/images/2546c.jpg" alt="contrast1" class="product-img-landscape">
-  </div>
-<div class="product-card">
-  <img src="/images/SWOOSH.jpg" alt="contrast1" class="product-img">
 </div>
 <div class="product-card">
-  <img src="/images/WAVES.jpg" alt="contrast1" class="product-img">
+</div>
+<div class="product-card">
+</div>
+<div class="product-card">
+</div>
+<div class="product-card">
 </div>
 <div class="product-card full-width">
-  <img src="/images/2554c.jpg" alt="contrast1" class="product-img-landscape">
-  </div>
+</div>
+<div class="product-card">
+</div>
+<div class="product-card">
+</div>
 <div class="product-card full-width">
-  <img src="/images/IMG_2439c.jpg" alt="contrast1" class="product-img-landscape">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_2461c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3222c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card full-width">
-  <img src="/images/lner.jpg" alt="contrast1" class="product-img-landscape">
-  </div>
+</div>
+<div class="product-card full-width">
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3247c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/2536c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
+<div class="product-card full-width">
+</div>
 <div class="product-card">
-  <img src="/images/lner0.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3288c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3418c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3547c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3700c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3907c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card">
-  <img src="/images/IMG_3911c.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
+<div class="product-card">
+</div>
+<div class="product-card">
+</div>
   <div class="product-card">
-  <img src="/images/BUILDINGFADEBW.jpg" alt="contrast1" class="product-img">
-  </div>
+</div>
 <div class="product-card full-width">
-  <img src="/images/leo7.jpg" alt="contrast1" class="product-img-landscape">
 </div>
 </section>
 
@@ -209,8 +155,7 @@ A drop of water or some other unspeakable liquid, marinating the entrails of the
   <!-- PHOTO INTERLUDE -->
   <div class="story-interlude">
     <div class="product-card">
-      <img src="/images/story staircase.jpg" class="product-img">
-    </div>
+</div>
   </div>
 
   <div class="story-text">
@@ -272,8 +217,7 @@ Outside, the air hurries down the asphalt and bites at my bare cheeks, playfully
   <!-- PHOTO INTERLUDE -->
   <div class="story-interlude">
     <div class="product-card">
-      <img src="/images/COSMIC.jpg" class="product-img">
-    </div>
+</div>
   </div>
 
   <div class="story-text">
@@ -349,8 +293,7 @@ I'm looking out the window now, apples in hand. The glasses are still talking, I
   <!-- PHOTO INTERLUDE -->
   <div class="story-interlude">
     <div class="product-card">
-      <img src="/images/leo20.JPG" class="product-img">
-    </div>
+</div>
   </div>
 
   <div class="story-text">
@@ -405,8 +348,7 @@ Deborah looks over reproachfully and I look back and she's back on her phone alr
   <!-- PHOTO INTERLUDE -->
   <div class="story-interlude">
     <div class="product-card">
-      <img src="/images/ESSEX.jpg" class="product-img">
-    </div>
+</div>
   </div>
 
   <div class="story-text">
@@ -537,8 +479,7 @@ Black bob, olive skin, green eyes, green like bronze in air for too long, small-
   <!-- PHOTO INTERLUDE -->
   <div class="story-interlude">
     <div class="product-card">
-      <img src="/images/leo22.JPG" class="product-img">
-    </div>
+</div>
   </div>
 
   <div class="story-text">
@@ -692,8 +633,7 @@ She walks away into the courtyard, the red brick buildings slicing skywards, a c
   <!-- PHOTO INTERLUDE -->
   <div class="story-interlude">
     <div class="product-card">
-      <img src="/images/TREEWALLBW.jpg" class="product-img">
-    </div>
+</div>
   </div>
 
   <div class="story-text">

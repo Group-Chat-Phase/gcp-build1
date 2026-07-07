@@ -7,19 +7,19 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
   <script data-goatcounter="https://groupchatphase.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
   <header>
     <div class="logo">
-      <a href="/" style="text-decoration:none; color:white; font-weight:900; letter-spacing:-1px;">GROUP CHAT PHASE</a>
+      <a href="{{ '/' | url }}" style="text-decoration:none; color:white; font-weight:900; letter-spacing:-1px;">GROUP CHAT PHASE</a>
     </div>
     <nav>
   <ul>
 {% for item in menu %}
-  <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+  <li><a href="{{ item.url | url }}">{{ item.name }}</a></li>
 {% endfor %}
   </ul>
 </nav>
