@@ -8,7 +8,7 @@
 body {
   background-color: #000; /* fallback while image loads / for any gaps */
   background-image: url('../images/bg-tile.webp');
-  background-repeat: repeat;      /* tiles endlessly instead of stretching */
+  background-repeat: repeat;
   background-size: 300px auto;    /* size of ONE tile — shrink/enlarge this number to taste */
   color: #fff;            /* White text */
   font-family: 'Inter', sans-serif;
@@ -100,8 +100,7 @@ main {
 
 h1 {
   font-family: 'Syncopate', sans-serif;
-  font-weight: 700;
-  font-size: clamp(4rem, 18vw, 15rem);
+  font-size: clamp(3rem, 14vw, 11rem);
   font-weight: 700;
   line-height: 0.8;
   letter-spacing: -0.00em;
@@ -113,10 +112,10 @@ h1 {
 .subheader {
   font-family: 'UnifrakturMaguntia', cursive;
   font-weight: 400;
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(2rem, 6vw, 4rem);
   text-transform: none;   /* override the site-wide uppercase — blackletter needs lowercase to read right */
   letter-spacing: 0.02em;
-  margin-top: -10px;      /* pulls it up closer to the h1, like your reference image */
+  margin-top: -10px;      /* pulls it up closer to the h1 */
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
