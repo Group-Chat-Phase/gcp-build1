@@ -107,6 +107,7 @@ h1 {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
+  color: #000;
 }
 
 .subheader {
@@ -119,6 +120,7 @@ h1 {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
+  color: #000000;
 }
 
 /* 4. EDITORIAL NOTE */
