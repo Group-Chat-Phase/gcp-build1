@@ -123,6 +123,22 @@ h1 {
   color: #000000;
 }
 
+.figure-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.title-figure {
+  display: block;
+  max-width: 400px;
+  width: 60%;
+  height: auto;
+  margin: 40px auto;
+  filter: none;
+}
+
 /* 4. EDITORIAL NOTE */
 .editorial-wrapper {
   display: grid;

@@ -13,6 +13,14 @@ title: GROUP CHAT PHASE
   </section>
 </div>
 
+<section class="figure-section">
+  <img src="{{ '/images/drawing_transparent.png' | url }}" alt="Illustrated figure" class="title-figure">
+</section>
+
+<section class="figure-section">
+  <img src="{{ '/images/drawing2_transparent.png' | url }}" alt="Illustrated figure" class="title-figure">
+</section>
+
 <div class="editorial-wrapper">
   <section class="editorial-note">
     <h2>Note from<br>the Editors</h2>
