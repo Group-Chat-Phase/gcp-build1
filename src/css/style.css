@@ -139,6 +139,49 @@ h1 {
   filter: none;
 }
 
+/* 3b. ANIMATION TESTS */
+.anim-test {
+  padding: 100px 0;
+  border-top: 1px solid #222;
+}
+
+.anim-test-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* TEST 1 — scroll-scrub: tall wrapper = scroll distance the sequence plays across */
+.scroll-anim-wrapper {
+  position: relative;
+  height: 300vh; /* increase for a slower scrub, decrease for a snappier one */
+}
+
+.scroll-anim-canvas {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+/* TEST 2 — autoplay */
+.autoplay-anim-wrapper {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.autoplay-anim-frame {
+  max-height: 60vh;
+  width: auto;
+  object-fit: contain;
+}
+
 /* 4. EDITORIAL NOTE */
 .editorial-wrapper {
   display: grid;

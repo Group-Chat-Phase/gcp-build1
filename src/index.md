@@ -21,6 +21,103 @@ title: GROUP CHAT PHASE
   <img src="{{ '/images/drawing2_transparent.png' | url }}" alt="Illustrated figure" class="title-figure">
 </section>
 
+<section class="anim-test" id="test1">
+  <p class="anim-test-label">TEST 1 — SCROLL SCRUB</p>
+  <div class="scroll-anim-wrapper" id="scrollAnimWrapper">
+    <canvas id="scrollAnimCanvas" class="scroll-anim-canvas"></canvas>
+  </div>
+</section>
+
+<section class="anim-test" id="test2">
+  <p class="anim-test-label">TEST 2 — AUTOPLAY</p>
+  <div class="autoplay-anim-wrapper">
+    <img id="autoplayAnimFrame" class="autoplay-anim-frame" src="{{ '/images/monk_animation_test_1.png' | url }}" alt="Animated figure, frame 1">
+  </div>
+</section>
+
+<script>
+(function () {
+  // Shared frame list, numerical order 1 → 3
+  const framePaths = [
+    "{{ '/images/monk_animation_test_1.png' | url }}",
+    "{{ '/images/monk_animation_test_2.png' | url }}",
+    "{{ '/images/monk_animation_test_3.png' | url }}"
+  ];
+
+  const frames = framePaths.map(src => {
+    const img = new Image();
+    img.src = src;
+    return img;
+  });
+
+  /* ---------- TEST 1: SCROLL SCRUB (canvas) ---------- */
+  const wrapper = document.getElementById('scrollAnimWrapper');
+  const canvas = document.getElementById('scrollAnimCanvas');
+  const ctx = canvas.getContext('2d');
+
+  function resizeCanvas() {
+    canvas.width = canvas.clientWidth * window.devicePixelRatio;
+    canvas.height = canvas.clientHeight * window.devicePixelRatio;
+  }
+
+  function drawFrame(index) {
+    const img = frames[index];
+    if (!img.complete || img.naturalWidth === 0) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // contain-fit, centered — preserves transparency, no cropping
+    const canvasRatio = canvas.width / canvas.height;
+    const imgRatio = img.naturalWidth / img.naturalHeight;
+    let drawW, drawH;
+    if (imgRatio > canvasRatio) {
+      drawW = canvas.width;
+      drawH = drawW / imgRatio;
+    } else {
+      drawH = canvas.height;
+      drawW = drawH * imgRatio;
+    }
+    ctx.drawImage(img, (canvas.width - drawW) / 2, (canvas.height - drawH) / 2, drawW, drawH);
+  }
+
+  function updateScrollFrame() {
+    const rect = wrapper.getBoundingClientRect();
+    const scrollDistance = wrapper.offsetHeight - window.innerHeight;
+    const progress = Math.min(1, Math.max(0, -rect.top / scrollDistance));
+    const frameIndex = Math.min(frames.length - 1, Math.floor(progress * frames.length));
+    drawFrame(frameIndex);
+  }
+
+  window.addEventListener('resize', () => { resizeCanvas(); updateScrollFrame(); });
+  window.addEventListener('scroll', updateScrollFrame, { passive: true });
+  resizeCanvas();
+  frames[0].onload = () => drawFrame(0);
+
+  /* ---------- TEST 2: AUTOPLAY (IntersectionObserver + interval) ---------- */
+  const autoplayImg = document.getElementById('autoplayAnimFrame');
+  const autoplayWrapper = autoplayImg.closest('.autoplay-anim-wrapper');
+  let autoplayIndex = 0;
+  let autoplayTimer = null;
+  const frameDuration = 200; // ms per frame — tune pacing here
+
+  function playNextFrame() {
+    autoplayIndex = (autoplayIndex + 1) % frames.length;
+    autoplayImg.src = framePaths[autoplayIndex];
+  }
+
+  const autoplayObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !autoplayTimer) {
+        autoplayTimer = setInterval(playNextFrame, frameDuration);
+      } else if (!entry.isIntersecting && autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+    });
+  }, { threshold: 0.3 });
+
+  autoplayObserver.observe(autoplayWrapper);
+})();
+</script>
+
 <div class="editorial-wrapper">
   <section class="editorial-note">
     <h2>Note from<br>the Editors</h2>
