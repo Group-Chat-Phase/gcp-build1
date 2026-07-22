@@ -68,32 +68,38 @@ if (heroOverlay) {
   heroOverlay.classList.add('locked'); // pin to viewport while the windows fade in
   document.body.style.overflow = 'hidden';
   let fakeScroll = 0;
+  let released = false;
   const isMobile = window.innerWidth <= 768;
   // Windows fade in over this distance, then the overlay releases into normal scroll flow
   const imageFadeDistance = isMobile ? 150 : 400;
   let touchStartY = 0;
 
   function applyFade(delta) {
+    if (released) return;
     fakeScroll = Math.max(0, Math.min(imageFadeDistance, fakeScroll + delta));
     const imgOpacity = fakeScroll / imageFadeDistance;
     windowImages.forEach(img => { img.style.opacity = imgOpacity; });
 
     if (fakeScroll >= imageFadeDistance) {
+      released = true;
       document.body.style.overflow = '';
       heroOverlay.classList.remove('locked'); // now a normal in-flow section — scrolls away like any content
     }
   }
 
   heroOverlay.addEventListener('wheel', (e) => {
+    if (released) return;
     e.preventDefault();
     applyFade(e.deltaY);
   }, { passive: false });
 
   heroOverlay.addEventListener('touchstart', (e) => {
+    if (released) return;
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
 
   heroOverlay.addEventListener('touchmove', (e) => {
+    if (released) return;
     e.preventDefault();
     applyFade(touchStartY - e.touches[0].clientY);
     touchStartY = e.touches[0].clientY;
