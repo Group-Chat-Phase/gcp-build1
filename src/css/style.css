@@ -108,9 +108,9 @@ main {
 .window-intro-img {
   position: absolute;
   top: 50%;
-  width: 26vw;
-  max-width: 340px;
-  min-width: 180px;
+  width: 30vw;
+  max-width: 420px;
+  min-width: 200px;
   height: auto;
   opacity: 0; /* faded in via JS on scroll */
   transform: translate(-50%, -50%);
@@ -127,8 +127,8 @@ main {
 
 @media (max-width: 768px) {
   .window-intro-img {
-    width: 40vw;
-    max-width: 220px;
+    width: 44vw;
+    max-width: 250px;
   }
 }
 
@@ -186,6 +186,11 @@ h1 {
   letter-spacing: 0.2em;
   color: #555;
   margin-bottom: 40px;
+}
+
+/* Blank scroll distance before the animation locks into place — pure background, no content */
+.scroll-anim-spacer {
+  height: 100vh;
 }
 
 /* TEST 1 — scroll-scrub: tall wrapper = scroll distance the sequence plays across */
