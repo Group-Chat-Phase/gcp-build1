@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-snap-type: y proximity; /* snaps near key points without forcing it site-wide */
+}
+
 body {
   background-color: #000; /* fallback while image loads / for any gaps */
   background-image: url('../images/bg-tile.webp');
@@ -81,20 +85,36 @@ main {
 }
 
 .hero-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
+  width: calc(100% + 80px); /* cancels main's 40px side padding for a full-bleed section */
+  margin-left: -40px;
+  margin-right: -40px;
+  height: 100vh;
   background-color: #000;
   background-image: url('../images/bg-tile.webp');
   background-repeat: repeat;
   background-size: 300px auto;
-  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.1s linear;
+}
+
+/* While locked (fade-in phase), it's pinned to the viewport instead of sitting in normal flow */
+.hero-overlay.locked {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .hero-overlay {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+  }
 }
 
 .hero-img {
@@ -188,15 +208,11 @@ h1 {
   margin-bottom: 40px;
 }
 
-/* Blank scroll distance before the animation locks into place — pure background, no content */
-.scroll-anim-spacer {
-  height: 100vh;
-}
-
 /* TEST 1 — scroll-scrub: tall wrapper = scroll distance the sequence plays across */
 .scroll-anim-wrapper {
   position: relative;
   height: 300vh; /* increase for a slower scrub, decrease for a snappier one */
+  scroll-snap-align: start;
 }
 
 .scroll-anim-canvas {

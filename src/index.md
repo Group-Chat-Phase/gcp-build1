@@ -8,8 +8,6 @@ title: GROUP CHAT PHASE
   <img src="{{ '/images/window_all_white_stripped.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration, white variant">
 </div>
 
-<div class="scroll-anim-spacer"></div>
-
 <section class="scroll-anim-wrapper" id="scrollAnimWrapper">
   <canvas id="scrollAnimCanvas" class="scroll-anim-canvas"></canvas>
 </section>
