@@ -64,6 +64,12 @@ main {
 
 .hero-wrapper {
   height: 100vh;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.hero-wrapper.visible {
+  opacity: 1;
 }
 
 .hero {
@@ -102,9 +108,9 @@ main {
 .window-intro-img {
   position: absolute;
   top: 50%;
-  width: 18vw;
-  max-width: 240px;
-  min-width: 130px;
+  width: 26vw;
+  max-width: 340px;
+  min-width: 180px;
   height: auto;
   opacity: 0; /* faded in via JS on scroll */
   transform: translate(-50%, -50%);
@@ -121,8 +127,8 @@ main {
 
 @media (max-width: 768px) {
   .window-intro-img {
-    width: 32vw;
-    max-width: 170px;
+    width: 40vw;
+    max-width: 220px;
   }
 }
 

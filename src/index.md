@@ -5,37 +5,19 @@ title: GROUP CHAT PHASE
 
 <div class="hero-overlay">
   <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-left" alt="Gothic window illustration">
-  <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration">
+  <img src="{{ '/images/window_all_white_stripped.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration, white variant">
 </div>
 
-<div class="hero-wrapper">
+<section class="scroll-anim-wrapper" id="scrollAnimWrapper">
+  <canvas id="scrollAnimCanvas" class="scroll-anim-canvas"></canvas>
+</section>
+
+<div class="hero-wrapper" id="heroWrapper">
   <section class="hero">
     <h1>VICE BREAK:</h1>
     <p class="subheader">an addictionary</p>
   </section>
 </div>
-
-<section class="figure-section">
-  <img src="{{ '/images/drawing_transparent.png' | url }}" alt="Illustrated figure" class="title-figure">
-</section>
-
-<section class="figure-section">
-  <img src="{{ '/images/drawing2_transparent.png' | url }}" alt="Illustrated figure" class="title-figure">
-</section>
-
-<section class="anim-test" id="test1">
-  <p class="anim-test-label">TEST 1 — SCROLL SCRUB</p>
-  <div class="scroll-anim-wrapper" id="scrollAnimWrapper">
-    <canvas id="scrollAnimCanvas" class="scroll-anim-canvas"></canvas>
-  </div>
-</section>
-
-<section class="anim-test" id="test2">
-  <p class="anim-test-label">TEST 2 — AUTOPLAY</p>
-  <div class="autoplay-anim-wrapper">
-    <img id="autoplayAnimFrame" class="autoplay-anim-frame" src="{{ '/images/monk_animation_test_1.png' | url }}" alt="Animated figure, frame 1">
-  </div>
-</section>
 
 <script>
 (function () {
@@ -52,10 +34,11 @@ title: GROUP CHAT PHASE
     return img;
   });
 
-  /* ---------- TEST 1: SCROLL SCRUB (canvas) ---------- */
+  /* ---------- INTRO ANIMATION: SCROLL SCRUB (canvas), then cross-fade into hero ---------- */
   const wrapper = document.getElementById('scrollAnimWrapper');
   const canvas = document.getElementById('scrollAnimCanvas');
   const ctx = canvas.getContext('2d');
+  const heroWrapper = document.getElementById('heroWrapper');
 
   function resizeCanvas() {
     canvas.width = canvas.clientWidth * window.devicePixelRatio;
@@ -80,18 +63,63 @@ title: GROUP CHAT PHASE
     ctx.drawImage(img, (canvas.width - drawW) / 2, (canvas.height - drawH) / 2, drawW, drawH);
   }
 
+  // Last 15% of the scroll range is reserved for cross-fading the animation out
+  const crossfadeStart = 0.85;
+
   function updateScrollFrame() {
     const rect = wrapper.getBoundingClientRect();
     const scrollDistance = wrapper.offsetHeight - window.innerHeight;
     const progress = Math.min(1, Math.max(0, -rect.top / scrollDistance));
     const frameIndex = Math.min(frames.length - 1, Math.floor(progress * frames.length));
     drawFrame(frameIndex);
+
+    if (progress >= crossfadeStart) {
+      const fadeProgress = (progress - crossfadeStart) / (1 - crossfadeStart);
+      canvas.style.opacity = Math.max(0, 1 - fadeProgress);
+    } else {
+      canvas.style.opacity = 1;
+    }
   }
 
   window.addEventListener('resize', () => { resizeCanvas(); updateScrollFrame(); });
   window.addEventListener('scroll', updateScrollFrame, { passive: true });
   resizeCanvas();
   frames[0].onload = () => drawFrame(0);
+
+  // Hero fades in as it enters view, right as the animation finishes fading out
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        heroWrapper.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+  heroObserver.observe(heroWrapper);
+})();
+</script>
+
+<section class="figure-section">
+  <img src="{{ '/images/drawing_transparent.png' | url }}" alt="Illustrated figure" class="title-figure">
+</section>
+
+<section class="figure-section">
+  <img src="{{ '/images/drawing2_transparent.png' | url }}" alt="Illustrated figure" class="title-figure">
+</section>
+
+<section class="anim-test" id="test2">
+  <p class="anim-test-label">TEST 2 — AUTOPLAY</p>
+  <div class="autoplay-anim-wrapper">
+    <img id="autoplayAnimFrame" class="autoplay-anim-frame" src="{{ '/images/monk_animation_test_1.png' | url }}" alt="Animated figure, frame 1">
+  </div>
+</section>
+
+<script>
+(function () {
+  const framePaths = [
+    "{{ '/images/monk_animation_test_1.png' | url }}",
+    "{{ '/images/monk_animation_test_2.png' | url }}",
+    "{{ '/images/monk_animation_test_3.png' | url }}"
+  ];
 
   /* ---------- TEST 2: AUTOPLAY (IntersectionObserver + interval) ---------- */
   const autoplayImg = document.getElementById('autoplayAnimFrame');
@@ -101,7 +129,7 @@ title: GROUP CHAT PHASE
   const frameDuration = 200; // ms per frame — tune pacing here
 
   function playNextFrame() {
-    autoplayIndex = (autoplayIndex + 1) % frames.length;
+    autoplayIndex = (autoplayIndex + 1) % framePaths.length;
     autoplayImg.src = framePaths[autoplayIndex];
   }
 
