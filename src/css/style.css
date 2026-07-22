@@ -98,6 +98,34 @@ main {
   object-fit: cover;
 }
 
+/* WINDOW INTRO — two copies centered on the lines dividing the screen into thirds */
+.window-intro-img {
+  position: absolute;
+  top: 50%;
+  width: 18vw;
+  max-width: 240px;
+  min-width: 130px;
+  height: auto;
+  opacity: 0; /* faded in via JS on scroll */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.window-intro-img-left {
+  left: 33.333%;
+}
+
+.window-intro-img-right {
+  left: 66.666%;
+}
+
+@media (max-width: 768px) {
+  .window-intro-img {
+    width: 32vw;
+    max-width: 170px;
+  }
+}
+
 h1 {
   font-family: 'Syncopate', sans-serif;
   font-size: clamp(3rem, 14vw, 11rem);

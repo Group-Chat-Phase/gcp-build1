@@ -4,6 +4,8 @@ title: GROUP CHAT PHASE
 ---
 
 <div class="hero-overlay">
+  <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-left" alt="Gothic window illustration">
+  <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration">
 </div>
 
 <div class="hero-wrapper">
