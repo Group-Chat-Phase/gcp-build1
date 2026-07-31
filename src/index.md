@@ -23,9 +23,9 @@ title: GROUP CHAT PHASE
 (function () {
   // Shared frame list, numerical order 1 → 4
   const framePaths = [
-    "{{ '/images/monk_animation_test_1.png' | url }}",
-    "{{ '/images/monk_animation_test_2.png' | url }}",
-    "{{ '/images/monk_animation_test_3.png' | url }}",
+    "{{ '/images/monk_animation_white_1.png' | url }}",
+    "{{ '/images/monk_animation_white_2.png' | url }}",
+    "{{ '/images/monk_animation_white_3.png' | url }}",
     "{{ '/images/smoke_book_transparent_v2.png' | url }}"
   ];
 
