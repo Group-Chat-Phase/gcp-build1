@@ -5,7 +5,7 @@ title: GROUP CHAT PHASE
 
 <div class="hero-overlay">
   <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-left" alt="Gothic window illustration">
-  <img src="{{ '/images/window_all_white_stripped.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration, white variant">
+  <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration, white variant">
 </div>
 
 <section class="scroll-anim-wrapper" id="scrollAnimWrapper">
