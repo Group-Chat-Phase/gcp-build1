@@ -73,8 +73,8 @@ title: GROUP CHAT PHASE
   }
 
   // The POV frame gets to hold at full opacity before the cross-fade to hero begins.
-  // Fade starts halfway through the final frame's share of the scroll range.
-  const crossfadeStart = 1 - (0.5 / frames.length);
+  // Fade only kicks in over the last quarter of the final frame's share of the scroll range.
+  const crossfadeStart = 1 - (0.25 / frames.length);
 
   function updateScrollFrame() {
     const rect = wrapper.getBoundingClientRect();
