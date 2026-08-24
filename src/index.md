@@ -5,7 +5,7 @@ title: GROUP CHAT PHASE
 
 <div class="hero-overlay">
   <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-left" alt="Gothic window illustration">
-  <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration, white variant">
+  <img src="{{ '/images/window_all_white_stripped.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration, white variant">
 </div>
 
 <section class="scroll-anim-wrapper" id="scrollAnimWrapper">
@@ -21,12 +21,20 @@ title: GROUP CHAT PHASE
 
 <script>
 (function () {
-  // Shared frame list, numerical order 1 → 4
+  // Shared frame list, numerical order 1 → 11, pov last
   const framePaths = [
-    "{{ '/images/monk_animation_white_1.png' | url }}",
-    "{{ '/images/monk_animation_white_2.png' | url }}",
-    "{{ '/images/monk_animation_white_3.png' | url }}",
-    "{{ '/images/smoke_book_transparent_v2.png' | url }}"
+    "{{ '/images/Gcp1_transparent.png' | url }}",
+    "{{ '/images/Gcp2_transparent.png' | url }}",
+    "{{ '/images/Gcp3_transparent.png' | url }}",
+    "{{ '/images/Gcp4_transparent.png' | url }}",
+    "{{ '/images/Gcp5_transparent.png' | url }}",
+    "{{ '/images/Gcp6_transparent.png' | url }}",
+    "{{ '/images/Gcp7_transparent.png' | url }}",
+    "{{ '/images/Gcp8_transparent.png' | url }}",
+    "{{ '/images/Gcp9_transparent.png' | url }}",
+    "{{ '/images/Gcp10_transparent.png' | url }}",
+    "{{ '/images/Gcp11_transparent.png' | url }}",
+    "{{ '/images/Gcppov_transparent.png' | url }}"
   ];
 
   const frames = framePaths.map(src => {
