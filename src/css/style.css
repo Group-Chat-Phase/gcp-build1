@@ -211,7 +211,7 @@ h1 {
 /* TEST 1 — scroll-scrub: tall wrapper = scroll distance the sequence plays across */
 .scroll-anim-wrapper {
   position: relative;
-  height: 300vh; /* increase for a slower scrub, decrease for a snappier one */
+  height: 400vh; /* increase for a slower scrub, decrease for a snappier one */
   scroll-snap-align: start;
 }
 

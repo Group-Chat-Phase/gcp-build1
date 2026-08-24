@@ -5,7 +5,7 @@ title: GROUP CHAT PHASE
 
 <div class="hero-overlay">
   <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-left" alt="Gothic window illustration">
-  <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration, white variant">
+  <img src="{{ '/images/window_transparent.png' | url }}" class="window-intro-img window-intro-img-right" alt="Gothic window illustration">
 </div>
 
 <section class="scroll-anim-wrapper" id="scrollAnimWrapper">
@@ -72,8 +72,9 @@ title: GROUP CHAT PHASE
     ctx.drawImage(img, (canvas.width - drawW) / 2, (canvas.height - drawH) / 2, drawW, drawH);
   }
 
-  // Last 15% of the scroll range is reserved for cross-fading the animation out
-  const crossfadeStart = 0.85;
+  // The POV frame gets to hold at full opacity before the cross-fade to hero begins.
+  // Fade starts halfway through the final frame's share of the scroll range.
+  const crossfadeStart = 1 - (0.5 / frames.length);
 
   function updateScrollFrame() {
     const rect = wrapper.getBoundingClientRect();
